@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.common.whuTalent.skillTesting.core/FLOW_RUN",
+  "name":"FLOW_RUN",
+  "type":"flow",
+  "title":"运行",
+  "params":[
+    { "title":"结构", "name":"structure", "type":"String", "notnull":false }
+  ],
+  "results":[
+    { "title":"结果", "name":"result", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_RUN",
+      "type":"event",
+      "title":"运行",
+      "reference":"FLOW_CODE_RUN",
+      "params":[
+        { "title":"结构", "name":"structure", "type":"String", "notnull":false }
+      ],
+      "results":[
+        { "title":"结果", "name":"result", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_RUN", "condition":"true" },
+    { "source":"FLOW_NODE_RUN", "target":"end", "condition":"true" }
+  ]
+}
