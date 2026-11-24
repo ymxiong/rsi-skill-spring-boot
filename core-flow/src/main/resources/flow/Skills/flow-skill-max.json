@@ -1,0 +1,71 @@
+{
+    "id":  "@cn.edu.whu/FLOW_MAX",
+    "name":  "FLOW_MAX",
+    "type":  "flow",
+    "title":  "最大值",
+    "description":  "获取两个数的最大值",
+    "params":  [
+                   {
+                       "title":  "数1",
+                       "name":  "num1",
+                       "type":  "Double",
+                       "notnull":  true
+                   },
+                   {
+                       "title":  "数2",
+                       "name":  "num2",
+                       "type":  "Double",
+                       "notnull":  true
+                   }
+               ],
+    "results":  [
+                    {
+                        "title":  "结果",
+                        "name":  "result",
+                        "type":  "Double",
+                        "notnull":  true
+                    }
+                ],
+    "nodes":  [
+                  {
+                      "id":  "FLOW_NODE_MAX",
+                      "type":  "event",
+                      "title":  "运行",
+                      "reference":  "FLOW_CODE_MAX",
+                      "params":  [
+                                     {
+                                         "title":  "数1",
+                                         "name":  "num1",
+                                         "type":  "Double",
+                                         "notnull":  true
+                                     },
+                                     {
+                                         "title":  "数2",
+                                         "name":  "num2",
+                                         "type":  "Double",
+                                         "notnull":  true
+                                     }
+                                 ],
+                      "results":  [
+                                      {
+                                          "title":  "结果",
+                                          "name":  "result",
+                                          "type":  "Double",
+                                          "notnull":  true
+                                      }
+                                  ]
+                  }
+              ],
+    "routes":  [
+                   {
+                       "source":  "start",
+                       "target":  "FLOW_NODE_MAX",
+                       "condition":  "true"
+                   },
+                   {
+                       "source":  "FLOW_NODE_MAX",
+                       "target":  "end",
+                       "condition":  "true"
+                   }
+               ]
+}

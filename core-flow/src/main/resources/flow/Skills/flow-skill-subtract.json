@@ -1,0 +1,33 @@
+{
+  "id":"@cn.edu.whu/FLOW_SUBTRACT",
+  "name":"FLOW_SUBTRACT",
+  "type":"flow",
+  "title":"减法",
+  "description": "完成两个数的减法",
+  "params":[
+    { "title":"数1", "name":"num1", "type":"Double", "notnull":true },
+    { "title":"数2", "name":"num2", "type":"Double", "notnull":true }
+  ],
+  "results":[
+    { "title":"结果", "name":"result", "type":"Double", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_SUBTRACT",
+      "type":"event",
+      "title":"运行",
+      "reference":"FLOW_CODE_SUBTRACT",
+      "params":[
+        { "title":"数1", "name":"num1", "type":"Double", "notnull":true },
+        { "title":"数2", "name":"num2", "type":"Double", "notnull":true }
+      ],
+      "results":[
+        { "title":"结果", "name":"result", "type":"Double", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_SUBTRACT", "condition":"true" },
+    { "source":"FLOW_NODE_SUBTRACT", "target":"end", "condition":"true" }
+  ]
+}

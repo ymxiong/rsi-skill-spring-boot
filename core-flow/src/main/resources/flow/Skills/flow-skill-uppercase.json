@@ -1,0 +1,59 @@
+{
+    "id":  "@cn.edu.whu/FLOW_UPPERCASE",
+    "name":  "FLOW_UPPERCASE",
+    "type":  "flow",
+    "title":  "转大写",
+    "description":  "将文本转换为大写",
+    "params":  [
+                   {
+                       "title":  "文本",
+                       "name":  "text",
+                       "type":  "String",
+                       "notnull":  true
+                   }
+               ],
+    "results":  [
+                    {
+                        "title":  "结果",
+                        "name":  "result",
+                        "type":  "String",
+                        "notnull":  true
+                    }
+                ],
+    "nodes":  [
+                  {
+                      "id":  "FLOW_NODE_UPPERCASE",
+                      "type":  "event",
+                      "title":  "运行",
+                      "reference":  "FLOW_CODE_UPPERCASE",
+                      "params":  [
+                                     {
+                                         "title":  "文本",
+                                         "name":  "text",
+                                         "type":  "String",
+                                         "notnull":  true
+                                     }
+                                 ],
+                      "results":  [
+                                      {
+                                          "title":  "结果",
+                                          "name":  "result",
+                                          "type":  "String",
+                                          "notnull":  true
+                                      }
+                                  ]
+                  }
+              ],
+    "routes":  [
+                   {
+                       "source":  "start",
+                       "target":  "FLOW_NODE_UPPERCASE",
+                       "condition":  "true"
+                   },
+                   {
+                       "source":  "FLOW_NODE_UPPERCASE",
+                       "target":  "end",
+                       "condition":  "true"
+                   }
+               ]
+}

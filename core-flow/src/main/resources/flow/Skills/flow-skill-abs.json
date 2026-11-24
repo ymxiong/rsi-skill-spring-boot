@@ -1,0 +1,59 @@
+{
+    "id":  "@cn.edu.whu/FLOW_ABS",
+    "name":  "FLOW_ABS",
+    "type":  "flow",
+    "title":  "绝对值",
+    "description":  "获取数的绝对值",
+    "params":  [
+                   {
+                       "title":  "数",
+                       "name":  "num",
+                       "type":  "Double",
+                       "notnull":  true
+                   }
+               ],
+    "results":  [
+                    {
+                        "title":  "结果",
+                        "name":  "result",
+                        "type":  "Double",
+                        "notnull":  true
+                    }
+                ],
+    "nodes":  [
+                  {
+                      "id":  "FLOW_NODE_ABS",
+                      "type":  "event",
+                      "title":  "运行",
+                      "reference":  "FLOW_CODE_ABS",
+                      "params":  [
+                                     {
+                                         "title":  "数",
+                                         "name":  "num",
+                                         "type":  "Double",
+                                         "notnull":  true
+                                     }
+                                 ],
+                      "results":  [
+                                      {
+                                          "title":  "结果",
+                                          "name":  "result",
+                                          "type":  "Double",
+                                          "notnull":  true
+                                      }
+                                  ]
+                  }
+              ],
+    "routes":  [
+                   {
+                       "source":  "start",
+                       "target":  "FLOW_NODE_ABS",
+                       "condition":  "true"
+                   },
+                   {
+                       "source":  "FLOW_NODE_ABS",
+                       "target":  "end",
+                       "condition":  "true"
+                   }
+               ]
+}

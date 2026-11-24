@@ -1,0 +1,46 @@
+{
+  "id":"@cn.edu.whu/FLOW_ADD_ABS",
+  "name":"FLOW_ADD_ABS",
+  "type":"flow",
+  "title":"加法后取绝对值",
+  "description":"先计算两个数的和，再取结果的绝对值",
+  "params":[
+    { "title":"数1", "name":"num1", "type":"Double", "notnull":true },
+    { "title":"数2", "name":"num2", "type":"Double", "notnull":true }
+  ],
+  "results":[
+    { "title":"结果", "name":"result", "type":"Double", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ADD",
+      "type":"flow",
+      "title":"加法",
+      "reference":"@cn.edu.whu/FLOW_ADD",
+      "params":[
+        { "title":"数1", "name":"num1", "type":"Double", "notnull":true },
+        { "title":"数2", "name":"num2", "type":"Double", "notnull":true }
+      ],
+      "results":[
+        { "title":"和", "name":"num", "type":"Double", "notnull":true }
+      ]
+    },
+    {
+      "id":"FLOW_NODE_ABS",
+      "type":"flow",
+      "title":"绝对值",
+      "reference":"@cn.edu.whu/FLOW_ABS",
+      "params":[
+        { "title":"和", "name":"num", "type":"Double", "notnull":true }
+      ],
+      "results":[
+        { "title":"结果", "name":"result", "type":"Double", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ADD", "condition":"true" },
+    { "source":"FLOW_NODE_ADD", "target":"FLOW_NODE_ABS", "condition":"true" },
+    { "source":"FLOW_NODE_ABS", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+    "id":  "@cn.edu.whu/FLOW_CONCAT",
+    "name":  "FLOW_CONCAT",
+    "type":  "flow",
+    "title":  "拼接",
+    "description":  "拼接两个文本",
+    "params":  [
+                   {
+                       "title":  "文本1",
+                       "name":  "text1",
+                       "type":  "String",
+                       "notnull":  true
+                   },
+                   {
+                       "title":  "文本2",
+                       "name":  "text2",
+                       "type":  "String",
+                       "notnull":  true
+                   }
+               ],
+    "results":  [
+                    {
+                        "title":  "结果",
+                        "name":  "result",
+                        "type":  "String",
+                        "notnull":  true
+                    }
+                ],
+    "nodes":  [
+                  {
+                      "id":  "FLOW_NODE_CONCAT",
+                      "type":  "event",
+                      "title":  "运行",
+                      "reference":  "FLOW_CODE_CONCAT",
+                      "params":  [
+                                     {
+                                         "title":  "文本1",
+                                         "name":  "text1",
+                                         "type":  "String",
+                                         "notnull":  true
+                                     },
+                                     {
+                                         "title":  "文本2",
+                                         "name":  "text2",
+                                         "type":  "String",
+                                         "notnull":  true
+                                     }
+                                 ],
+                      "results":  [
+                                      {
+                                          "title":  "结果",
+                                          "name":  "result",
+                                          "type":  "String",
+                                          "notnull":  true
+                                      }
+                                  ]
+                  }
+              ],
+    "routes":  [
+                   {
+                       "source":  "start",
+                       "target":  "FLOW_NODE_CONCAT",
+                       "condition":  "true"
+                   },
+                   {
+                       "source":  "FLOW_NODE_CONCAT",
+                       "target":  "end",
+                       "condition":  "true"
+                   }
+               ]
+}

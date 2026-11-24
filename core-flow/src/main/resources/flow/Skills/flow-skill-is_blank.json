@@ -1,0 +1,59 @@
+{
+    "id":  "@cn.edu.whu/FLOW_IS_BLANK",
+    "name":  "FLOW_IS_BLANK",
+    "type":  "flow",
+    "title":  "是否空白",
+    "description":  "判断文本是否空白",
+    "params":  [
+                   {
+                       "title":  "文本",
+                       "name":  "text",
+                       "type":  "String",
+                       "notnull":  true
+                   }
+               ],
+    "results":  [
+                    {
+                        "title":  "结果",
+                        "name":  "result",
+                        "type":  "Boolean",
+                        "notnull":  true
+                    }
+                ],
+    "nodes":  [
+                  {
+                      "id":  "FLOW_NODE_IS_BLANK",
+                      "type":  "event",
+                      "title":  "运行",
+                      "reference":  "FLOW_CODE_IS_BLANK",
+                      "params":  [
+                                     {
+                                         "title":  "文本",
+                                         "name":  "text",
+                                         "type":  "String",
+                                         "notnull":  true
+                                     }
+                                 ],
+                      "results":  [
+                                      {
+                                          "title":  "结果",
+                                          "name":  "result",
+                                          "type":  "Boolean",
+                                          "notnull":  true
+                                      }
+                                  ]
+                  }
+              ],
+    "routes":  [
+                   {
+                       "source":  "start",
+                       "target":  "FLOW_NODE_IS_BLANK",
+                       "condition":  "true"
+                   },
+                   {
+                       "source":  "FLOW_NODE_IS_BLANK",
+                       "target":  "end",
+                       "condition":  "true"
+                   }
+               ]
+}

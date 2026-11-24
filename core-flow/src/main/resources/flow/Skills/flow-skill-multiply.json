@@ -1,0 +1,71 @@
+{
+    "id":  "@cn.edu.whu/FLOW_MULTIPLY",
+    "name":  "FLOW_MULTIPLY",
+    "type":  "flow",
+    "title":  "乘法",
+    "description":  "完成两个数的乘法",
+    "params":  [
+                   {
+                       "title":  "数1",
+                       "name":  "num1",
+                       "type":  "Double",
+                       "notnull":  true
+                   },
+                   {
+                       "title":  "数2",
+                       "name":  "num2",
+                       "type":  "Double",
+                       "notnull":  true
+                   }
+               ],
+    "results":  [
+                    {
+                        "title":  "结果",
+                        "name":  "result",
+                        "type":  "Double",
+                        "notnull":  true
+                    }
+                ],
+    "nodes":  [
+                  {
+                      "id":  "FLOW_NODE_MULTIPLY",
+                      "type":  "event",
+                      "title":  "运行",
+                      "reference":  "FLOW_CODE_MULTIPLY",
+                      "params":  [
+                                     {
+                                         "title":  "数1",
+                                         "name":  "num1",
+                                         "type":  "Double",
+                                         "notnull":  true
+                                     },
+                                     {
+                                         "title":  "数2",
+                                         "name":  "num2",
+                                         "type":  "Double",
+                                         "notnull":  true
+                                     }
+                                 ],
+                      "results":  [
+                                      {
+                                          "title":  "结果",
+                                          "name":  "result",
+                                          "type":  "Double",
+                                          "notnull":  true
+                                      }
+                                  ]
+                  }
+              ],
+    "routes":  [
+                   {
+                       "source":  "start",
+                       "target":  "FLOW_NODE_MULTIPLY",
+                       "condition":  "true"
+                   },
+                   {
+                       "source":  "FLOW_NODE_MULTIPLY",
+                       "target":  "end",
+                       "condition":  "true"
+                   }
+               ]
+}

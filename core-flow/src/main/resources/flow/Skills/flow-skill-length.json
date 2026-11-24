@@ -1,0 +1,59 @@
+{
+    "id":  "@cn.edu.whu/FLOW_LENGTH",
+    "name":  "FLOW_LENGTH",
+    "type":  "flow",
+    "title":  "长度",
+    "description":  "获取文本长度",
+    "params":  [
+                   {
+                       "title":  "文本",
+                       "name":  "text",
+                       "type":  "String",
+                       "notnull":  true
+                   }
+               ],
+    "results":  [
+                    {
+                        "title":  "结果",
+                        "name":  "result",
+                        "type":  "Integer",
+                        "notnull":  true
+                    }
+                ],
+    "nodes":  [
+                  {
+                      "id":  "FLOW_NODE_LENGTH",
+                      "type":  "event",
+                      "title":  "运行",
+                      "reference":  "FLOW_CODE_LENGTH",
+                      "params":  [
+                                     {
+                                         "title":  "文本",
+                                         "name":  "text",
+                                         "type":  "String",
+                                         "notnull":  true
+                                     }
+                                 ],
+                      "results":  [
+                                      {
+                                          "title":  "结果",
+                                          "name":  "result",
+                                          "type":  "Integer",
+                                          "notnull":  true
+                                      }
+                                  ]
+                  }
+              ],
+    "routes":  [
+                   {
+                       "source":  "start",
+                       "target":  "FLOW_NODE_LENGTH",
+                       "condition":  "true"
+                   },
+                   {
+                       "source":  "FLOW_NODE_LENGTH",
+                       "target":  "end",
+                       "condition":  "true"
+                   }
+               ]
+}

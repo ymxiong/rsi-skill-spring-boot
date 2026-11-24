@@ -1,0 +1,59 @@
+{
+    "id":  "@cn.edu.whu/FLOW_TRIM",
+    "name":  "FLOW_TRIM",
+    "type":  "flow",
+    "title":  "去除首尾空白",
+    "description":  "去除文本首尾空白",
+    "params":  [
+                   {
+                       "title":  "文本",
+                       "name":  "text",
+                       "type":  "String",
+                       "notnull":  true
+                   }
+               ],
+    "results":  [
+                    {
+                        "title":  "结果",
+                        "name":  "result",
+                        "type":  "String",
+                        "notnull":  true
+                    }
+                ],
+    "nodes":  [
+                  {
+                      "id":  "FLOW_NODE_TRIM",
+                      "type":  "event",
+                      "title":  "运行",
+                      "reference":  "FLOW_CODE_TRIM",
+                      "params":  [
+                                     {
+                                         "title":  "文本",
+                                         "name":  "text",
+                                         "type":  "String",
+                                         "notnull":  true
+                                     }
+                                 ],
+                      "results":  [
+                                      {
+                                          "title":  "结果",
+                                          "name":  "result",
+                                          "type":  "String",
+                                          "notnull":  true
+                                      }
+                                  ]
+                  }
+              ],
+    "routes":  [
+                   {
+                       "source":  "start",
+                       "target":  "FLOW_NODE_TRIM",
+                       "condition":  "true"
+                   },
+                   {
+                       "source":  "FLOW_NODE_TRIM",
+                       "target":  "end",
+                       "condition":  "true"
+                   }
+               ]
+}
